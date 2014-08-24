@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="dist/docs-assets/ico/favicon.png">
+ 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.js"></script>
+ 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/account.js"></script>	
+	<script type="text/javascript" src="js/login.js"></script>	
+
+    <title>Last Man Standing</title>
+    
+    <script>
+	function checkEmailForm() {
+				
+		var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		if( $("#newEmailForm").val().length != 0 && regex.test( $("#newEmailForm").val() ) ) {
+			$("#emailEmptyAlert").attr("hidden", true);
+			$("#emailNotValidAlert").attr("hidden", true);
+			updateEmail();
+		} else {
+			if( $("#newEmailForm").val().length == 0 ) {
+				$("#emailEmptyAlert").attr("hidden", false);
+				$("#emailNotValidAlert").attr("hidden", true);
+			} else {
+				$("#emailNotValidAlert").attr("hidden", false);
+				$("#emailEmptyAlert").attr("hidden", true);
+			}
+		}
+		
+
+	}
+	function checkPasswordForm() {
+		
+
+		if( $("#passwordForm1").val().length == 0 ) {
+			$("#passwordEmptyAlert1").attr("hidden", false);
+		} else {
+			$("#passwordEmptyAlert1").attr("hidden", true);
+		}
+		
+		if( $("#passwordForm2").val().length == 0 ) {
+			$("#passwordEmptyAlert2").attr("hidden", false);
+		} else {
+			$("#passwordEmptyAlert2").attr("hidden", true);
+		}
+		
+		if( $("#passwordForm1").val() == $("#passwordForm2").val() &&  $("#passwordForm1").val() != ""  ) {
+			$("#passwordsDoNotMatchAlert").attr("hidden", true);
+			updatePassword();
+		} else {
+			$("#passwordsDoNotMatchAlert").attr("hidden", false);
+		}
+
+	}
+	</script>
+    
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/theme.css" rel="stylesheet">
+
+  </head>
+
+  <body background="images/football-stadium.jpg" onLoad="addGameButtons()">
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="dashboard.html">Home</a></li>
+            <li><a href="account.html">My Account</a></li>
+            <li><a href="#" onclick="logoutClicked()">Logout</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+        
+    <div class="container theme-showcase" style="margin:auto;">
+	    <div class="jumbotron">
+	       <h1>My Account</h1>
+	        <p>Feel free to change your password or email address</p>
+	    </div>
+	    
+		<div class="container" style="position: relative; left: -14px; border-radius:25px; background-color: #F7F7F7; padding: 20px">
+		    	
+    		<br>  
+
+		    <div id="updateEmail" class="container" style="max-width: 300px; float:left;">
+		        <input id="newEmailForm" type="text" class="form-control" placeholder="New Email address" required>
+		        <div id="emailNotValidAlert" hidden="true" class="alert alert-danger">Not a valid email address</div>
+		        <div id="emailEmptyAlert" hidden="true" class="alert alert-danger">Please fill in email field</div>	      
+		    	<a id="updateEmailBtn" class="btn btn-danger" onclick="checkEmailForm()">Update email</a>
+		   		<br><br>
+	    		<br><br> 
+	    		<input id="passwordForm1" type="password" class="form-control" placeholder="Password" required>
+		        <div id="passwordEmptyAlert1" hidden="true" class="alert alert-danger">Please fill in password field</div>
+	    		<input id="passwordForm2" type="password" class="form-control" placeholder="Retype Password" required>
+		        <div id="passwordEmptyAlert2" hidden="true" class="alert alert-danger">Please fill in password field</div>
+		        <div id="passwordsDoNotMatchAlert" hidden="true" class="alert alert-danger">Passwords do not match</div>
+		        
+		    	<a id="updatePasswordBtn" class="btn btn-danger" onclick="checkPasswordForm()">Update password</a>  	
+	    	</div>
+	    	
+		  	<br>	    	
+    	</div>
+
+      	
+	</div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  </body>
+</html>

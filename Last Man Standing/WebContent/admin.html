@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="dist/docs-assets/ico/favicon.png">
+
+ 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.js"></script>
+ 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/admin.js"></script>	
+	<script type="text/javascript" src="js/login.js"></script>	
+
+    <title>Last Man Standing</title>
+    <script>
+	function checkAddForms() {
+				
+		var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+		if( $("#emailForm").val().length != 0 && $("#passwordForm").val().length != 0 && regex.test( $("#emailForm").val()) ) {
+			$("#emailEmptyAlert").attr("hidden", true);
+			$("#emailNotValidAlert").attr("hidden", true);
+			addUser();
+		} else {
+			
+			if( $("#emailForm").val().length == 0 ) {
+				$("#emailEmptyAlert").attr("hidden", false);
+				$("#emailNotValidAlert").attr("hidden", true);
+			} else {
+				$("#emailNotValidAlert").attr("hidden", false);
+				$("#emailEmptyAlert").attr("hidden", true);
+			}
+			//addUser(); //delete
+		}
+		
+		if( $("#passwordForm").val().length == 0 ) {
+			$("#passwordEmptyAlert").attr("hidden", false);
+		} else {
+			$("#passwordEmptyAlert").attr("hidden", true);
+		}
+	}
+	function checkDeleteForms() {
+		
+		var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+		if( $("#deleteEmailForm").val().length != 0 && regex.test( $("#deleteEmailForm").val()) ) {
+			$("#deleteEmailEmptyAlert").attr("hidden", true);
+			$("#deleteEmailNotValidAlert").attr("hidden", true);
+			deleteUser();
+		} else {
+			
+			if( $("#deleteEmailForm").val().length == 0 ) {
+				$("#deleteEmailEmptyAlert").attr("hidden", false);
+				$("#deleteEmailNotValidAlert").attr("hidden", true);
+			} else {
+				$("#deleteEmailNotValidAlert").attr("hidden", false);
+				$("#deleteEmailEmptyAlert").attr("hidden", true);
+			}
+			//addUser(); //delete
+		}
+
+	}
+	</script>
+	
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/theme.css" rel="stylesheet">
+
+  </head>
+
+  <body background="images/football-stadium.jpg" >
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#" onclick="logoutClicked()">Logout</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+        
+        
+    <div class="container">
+    	<div class="jumbotron">
+    		  <h3>Welcome to the admin page!</h3>
+    	</div>
+    	<div id="updateFixturesDiv" class="container" style="max-width: 300px; float:left;">
+    		<a id="updateFixturesBtn" class="btn btn-danger" onclick="updateFixtures()">Update Fixtures</a>
+    	</div>
+   		<br><br>
+    	<br><br>  
+	    <div id="addUserDiv" class="container" style="max-width: 300px; float:left;">
+	        <input id="emailForm" type="text" class="form-control" placeholder="Email address" required>
+	        <div id="emailNotValidAlert" hidden="true" class="alert alert-danger">Not a valid email address</div>
+	        <div id="emailEmptyAlert" hidden="true" class="alert alert-danger">Please fill in email field</div>
+	        <input id="passwordForm" type="password" class="form-control" placeholder="Password" required>
+	        <div id="passwordEmptyAlert" hidden="true" class="alert alert-danger">Please fill in password field</div>
+	      
+	    	<a id="addUserBtn" class="btn btn-danger" onclick="checkAddForms()">Add user</a>
+	   		<br><br>
+    		<br><br> 
+    		<input id="deleteEmailForm" type="text" class="form-control" placeholder="Email address" required>
+	        <div id="deleteEmailNotValidAlert" hidden="true" class="alert alert-danger">Not a valid email address</div>
+	        <div id="deleteEmailEmptyAlert" hidden="true" class="alert alert-danger">Please fill in email field</div>
+	        <div class="input-group">
+		      <span class="input-group-addon">
+				<input id="deteteGamesCheckBox" type="checkbox">
+		      </span>
+		      <input type="text" class="form-control" value="Delete all data" readonly required>
+		    </div><!-- /input-group -->
+	    	<a id="deleteUserBtn" class="btn btn-danger" onclick="checkDeleteForms()">Delete user</a>
+	    	
+    	</div>
+
+    </div>
+    
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  </body>
+</html>

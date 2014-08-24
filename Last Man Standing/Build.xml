@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="LMS" default="war">	
+	<path id="compile.classpath">
+   		<fileset dir="WebContent/WEB-INF/lib">
+       	<include name="*.jar"/>
+   		</fileset>
+	</path>
+		
+	<path id="compile.classpath">
+		<fileset dir="WebContent/WEB-INF/lib">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+		
+	<target name="init">
+		<mkdir dir="build/classes"/>
+		<mkdir dir="dist" />
+	</target>
+	
+	<target name="compile" depends="init" >
+		<javac destdir="build/classes" debug="true" srcdir="src">
+			<classpath refid="compile.classpath"/>
+		</javac>
+	</target>
+	
+	<target name="war" depends="compile">
+		<war destfile="C:\xampp\tomcat\webapps\LMS.war" webxml="WebContent/WEB-INF/web.xml">
+			<fileset dir="WebContent"/>
+			<fileset dir="." includes="dist/**"/>
+			<lib dir="WebContent/WEB-INF/lib"/>
+			<classes dir="build/classes"/>
+			<!--<zipfileset dir="." includes="PHP/**/*"/> -->
+		</war>
+	</target>
+	
+	 <copy file="WebContent/PHP/googleapitest.php" tofile="C:\xampp\htdocs\LMS\PHP\googleapitest.php"/>
+	
+	
+	<target name="clean">
+		<delete dir="dist" />
+		<delete dir="build" />
+	</target>
+</project>

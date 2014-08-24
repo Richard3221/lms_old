@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="dist/docs-assets/ico/favicon.png">
+
+ 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.js"></script>
+ 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ 	<script type="text/javascript" src="js/bootstrap/modal.js"></script>	
+	<script type="text/javascript" src="js/game.js"></script>	
+	<script type="text/javascript" src="js/login.js"></script>	
+	
+	
+    <title>Last Man Standing</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/theme.css" rel="stylesheet">
+
+  </head>
+
+  <body background="images/football-stadium.jpg"  onload="getFixtures()">
+    <div class="container theme-showcase">
+	
+	    <!-- Fixed navbar -->
+	    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	      <div class="container">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	        </div>
+	        <div class="navbar-collapse collapse">
+	          <ul class="nav navbar-nav">
+	            <li class="active"><a href="dashboard.html">Home</a></li>
+	            <li><a href="account.html">My Account</a></li>
+	            <li><a href="#" onclick="logoutClicked()">Logout</a></li>
+	          </ul>
+	        </div><!--/.nav-collapse -->
+	      </div>
+	    </div>
+	    
+	     <div style="position: relative; left: -14px; border-radius:25px; background-color: #F7F7F7;" align="center" >
+	     	<br>  	     	
+	     	<table>
+	     		<tr>
+	     			<th id="previousGWTH" width="50"></th>
+	     			<th><div id="gameDiv" align="center" ></div></th>
+	     			<th id="nextGWTH"width="50"></th>
+				</tr>
+	     	</table>
+	     </div>
+	     <br>  
+	  	 <br>
+	  	 <br>
+	        
+	</div>
+
+	
+	
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  </body>
+</html>

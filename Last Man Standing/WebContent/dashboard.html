@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="dist/docs-assets/ico/favicon.png">
+
+ 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.js"></script>
+ 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/dashboard.js"></script>	
+	<script type="text/javascript" src="js/login.js"></script>	
+	<script type="text/javascript" src="js/bootstrap/collapse.js"></script>	
+	<script type="text/javascript" src="js/bootstrap/transition.js"></script>	
+	
+    <title>Last Man Standing</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/theme.css" rel="stylesheet">
+
+
+  </head>
+
+  <body background="images/football-stadium.jpg" onLoad="getGameweek()">
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="account.html">My Account</a></li>
+            <li><a href="#" onclick="logoutClicked()">Logout</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+        
+    <div class="container theme-showcase" style="margin:auto;">
+	    <div class="jumbotron">
+	       <h1>Welcome to Last Man Standing!</h1>
+	        <p>Please choose from your games below or start a new one!</p>
+	    </div>
+	    
+	  <div class="container" style="position: relative; left: -14px; border-radius:25px; background-color: #F7F7F7;">
+		  
+		  <div id="gameweekDiv" class="page-header">
+		  </div>
+			
+		  <div id="newGameDiv" class="container">
+		  	<a id="newGameBtn" class="btn btn-lg btn-primary" href="newGame.html">New Game</a>
+		  </div>
+		
+	      <div class="page-header">
+	        <h1>Games</h1>
+	      </div>		  
+		  
+		  <div class="panel-group" id="accordion">
+			  <div class="panel panel-default">
+			    <div class="panel-heading">
+			      <h4 class="panel-title">
+			        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+			          In progress
+			        </a>
+			      </h4>
+			    </div>
+			    <div id="collapseOne" class="panel-collapse collapse in">
+			      <div id="activeGamesDiv" class="panel-body">
+			      </div>
+			    </div>
+			  </div>
+			  <div class="panel panel-default">
+			    <div class="panel-heading">
+			      <h4 class="panel-title">
+			        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+			          Game still going but eliminated
+			        </a>
+			      </h4>
+			    </div>
+			    <div id="collapseTwo" class="panel-collapse collapse">
+			      <div id="eliminatedActiveGamesDiv" class="panel-body">
+			      </div>
+			    </div>
+			  </div>
+			  <div class="panel panel-default">
+			    <div class="panel-heading">
+			      <h4 class="panel-title">
+			        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+			          Ended
+			        </a>
+			      </h4>
+			    </div>
+			    <div id="collapseThree" class="panel-collapse collapse">
+			      <div id="endedGamesDiv" class="panel-body">
+			      </div>
+			    </div>
+			  </div>
+		  </div>
+		  
+		  
+		  <br>  
+	  	  <br>
+	  	  <br>
+	  	  
+	   </div>
+	</div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  </body>
+</html>
